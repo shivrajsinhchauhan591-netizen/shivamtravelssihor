@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shivam Travels Sihor</title>
+
+<style>
+body {font-family: Arial; margin:0; background:#f4f4f4;}
+header {background:linear-gradient(45deg,#007bff,#00c6ff); color:white; padding:20px; text-align:center;}
+nav {background:#333; padding:10px; text-align:center;}
+nav a {color:white; margin:10px; text-decoration:none;}
+section {padding:20px;}
+.box {background:white; padding:20px; margin:15px 0; border-radius:15px; box-shadow:0 0 10px rgba(0,0,0,0.1);}
+.btn {background:#28a745; color:white; padding:10px 15px; border-radius:5px; text-decoration:none; display:inline-block; margin-top:10px;}
+input, textarea, select {width:100%; padding:10px; margin:5px 0; border-radius:5px; border:1px solid #ccc;}
+footer {background:#222; color:white; text-align:center; padding:15px;}
+</style>
+
+<script>
+function sendWhatsApp(){
+  var name = document.getElementById('name').value;
+  var pickup = document.getElementById('pickup').value;
+  var drop = document.getElementById('drop').value;
+  var date = document.getElementById('date').value;
+  var time = document.getElementById('time').value;
+
+  var message = "Booking Request:%0AName: " + name + "%0APickup: " + pickup + "%0ADrop: " + drop + "%0ADate: " + date + "%0ATime: " + time;
+  var url = "https://wa.me/919898222313?text=" + message;
+  window.open(url, '_blank');
+}
+
+function calculateFare(){
+  var km = document.getElementById('km').value;
+  var car = document.getElementById('car').value;
+  var rate = 0;
+
+  if(car=="Dzire" || car=="Aura") rate = 10;
+  if(car=="Ertiga") rate = 13;
+  if(car=="Innova") rate = 19;
+
+  var total = km * rate;
+  document.getElementById('result').innerHTML = "Estimated Fare: ₹" + total;
+}
+</script>
+
+</head>
+<body>
+
+<header>
+<h1>SHIVAM TRAVELS SIHOR</h1>
+<p>One Way • Round Trip • Gujarat All Cities</p>
+</header>
+
+<nav>
+<a href="#fare">Fare</a>
+<a href="#booking">Booking</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<section class="box">
+<h2>Auto Fare Calculator</h2>
+<input type="number" id="km" placeholder="Enter KM">
+<select id="car">
+<option>Dzire</option>
+<option>Aura</option>
+<option>Ertiga</option>
+<option>Innova</option>
+</select>
+<button class="btn" onclick="calculateFare()">Calculate Fare</button>
+<p id="result"></p>
+</section>
+
+<section id="booking" class="box">
+<h2>WhatsApp Booking</h2>
+<input type="text" id="name" placeholder="Full Name">
+<input type="text" id="pickup" placeholder="Pickup Location">
+<input type="text" id="drop" placeholder="Drop Location">
+<input type="date" id="date">
+<input type="time" id="time">
+<button class="btn" onclick="sendWhatsApp()">Book on WhatsApp</button>
+</section>
+
+<section class="box">
+<h2>Live Tracking</h2>
+<p>Driver location will be shared on WhatsApp after booking.</p>
+</section>
+
+<section id="reviews" class="box">
+<h2>Customer Reviews</h2>
+<p>⭐⭐⭐⭐⭐ Excellent service!</p>
+<p>⭐⭐⭐⭐⭐ On time pickup!</p>
+<p>⭐⭐⭐⭐⭐ Best taxi service!</p>
+</section>
+
+<section id="contact" class="box">
+<h2>Contact</h2>
+<p>📞 9898222313 / 9574249281</p>
+<a class="btn" href="tel:9898222313">Call Now</a>
+<a class="btn" href="https://wa.me/919898222313">WhatsApp</a>
+</section>
+
+<footer>
+<p>© 2026 Shivam Travels Sihor</p>
+</footer>
+
+</body>
+</html>
